@@ -8,17 +8,23 @@ $('td').click(function() {
     if (turn % 2 === 0){
         $(this).text('X');
         $("#urturn").text("It is O's Turn");
-        // Add logic to checkWinner
          checkWinner('X')
-    }else if(turn % 2 !== 0){
+    }else {
           $("#urturn").text("It is X's Turn");
           $(this).text('O');
-          // Add logic to checkWinner
           checkWinner('O')
           };
         }
 turn++;
   })
+
+if (true) {
+
+} else {
+
+}
+
+
 
 
 $("#reset").on("click", function() {
@@ -48,17 +54,7 @@ function checkWinner(player){
   winnerstring= JSON.stringify(winner)
 
       if (combostring.includes(winnerstring)){
-
           setTimeout(function(){alert('Game over! '+player+' is the winner!')},500);
           setTimeout(function(){ $("#board td").empty() }, 1000)
-          // $("#board td").empty()
         }
-
   }
-
-
-
-
-// function emptyBoard(){
-//   setTimeout(function(){ $("#board td").empty() }, 3000);
-// }
