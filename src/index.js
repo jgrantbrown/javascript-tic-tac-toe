@@ -9,22 +9,15 @@ $('td').click(function() {
         $(this).text('X');
         $("#urturn").text("It is O's Turn");
         // Add logic to checkWinner
-        if (checkWinner('X')){
-        };
+         checkWinner('X')
     }else if(turn % 2 !== 0){
           $("#urturn").text("It is X's Turn");
           $(this).text('O');
-
           // Add logic to checkWinner
-          if (checkWinner('O')){
+          checkWinner('O')
           };
-        }else {
-            alert("No Winner")
-            turn = 0
-            $("#board td").empty()
-          }
+        }
 turn++;
-          }
   })
 
 
