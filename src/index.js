@@ -9,14 +9,13 @@ $('td').click(function() {
         $(this).text('X');
         // Add logic to checkWinner
         if (checkWinner('X')){
-          turn = 0
           $("#board td").empty()
+
         };
     }else if(turn % 2 !== 0){
           $(this).text('O');
           // Add logic to checkWinner
           if (checkWinner('O')){
-            turn = 0
             $("#board td").empty()
           };
         }else {
@@ -35,16 +34,9 @@ $("#reset").on("click", function() {
 
 });
 
-// NOT WORKING YET
+
 function checkWinner(player){
-  // playerX= "X"
-  // playerO="O"
-  //
-  // if (player = playerX) {
-  //   playergoes="Player O is first to go!"
-  // }else {
-  //   playergoes="Player X is first to go!"
-  // }
+
 
 //  1|2|3
 //  4|5|6
@@ -55,6 +47,7 @@ function checkWinner(player){
               if ($('#board').find('#1').text() == $('#board').find('#2').text()) {
                   if ($('#board').find('#1').text() == $('#3').text()) {
                       alert('Game over! '+player+' is the winner!');
+
                       $("#board td").empty()
 
                   }
@@ -118,11 +111,17 @@ function checkWinner(player){
         if ($('#board').find('#3').text() !== ''){
           if ($('#board').find('#3').text() == $('#board').find('#5').text()) {
             if ($('#board').find('#3').text() == $('#7').text()) {
-                alert('Game over! '+player+' is the winner!');
-                $("#board td").empty()
+                 alert('Game over! '+player+' is the winner!')
+                 emptyBoard()
                             }
                               }
                             }
 
 
+}
+
+
+
+function emptyBoard(){
+  setInterval(function(){ $("#board td").empty() }, 2000);
 }
