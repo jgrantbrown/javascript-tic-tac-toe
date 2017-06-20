@@ -1,0 +1,75 @@
+Orginal LOGIC CHECK
+// CHeck for first row--> matches
+  // if ($('#board').find('#1').text() !== ''){
+  //             if ($('#board').find('#1').text() == $('#board').find('#2').text()) {
+  //                 if ($('#board').find('#1').text() == $('#3').text()) {
+  //                     alert('Game over! '+player+' is the winner!');
+  //
+  //                     $("#board td").empty()
+  //
+  //                 }
+  //             }
+  //   }
+// CHeck for second row--> matches
+    // if ($('#board').find('#4').text() !== ''){
+    //               if ($('#board').find('#4').text() == $('#board').find('#5').text()) {
+    //                   if ($('#board').find('#4').text() == $('#6').text()) {
+    //                       alert('Game over! '+player+' is the winner!');
+    //                       $("#board td").empty()
+    //                   }
+    //               }
+    //     }
+// CHeck for third row--> matches
+    // if ($('#board').find('#7').text() !== ''){
+    //           if ($('#board').find('#7').text() == $('#board').find('#8').text()) {
+    //               if ($('#board').find('#7').text() == $('#9').text()) {
+    //                   alert('Game over! '+player+' is the winner!');
+    //                   $("#board td").empty()
+    //                 }
+    //             }
+    //         }
+// CHeck for first column--> matches
+    // if ($('#board').find('#1').text() !== ''){
+    //         if ($('#board').find('#1').text() == $('#board').find('#4').text()) {
+    //           if ($('#board').find('#1').text() == $('#7').text()) {
+    //               alert('Game over! '+player+' is the winner!');
+    //               $("#board td").empty()
+    //               }
+    //             }
+    //           }
+// CHeck for second column--> matches
+    // if ($('#board').find('#2').text() !== ''){
+    //                 if ($('#board').find('#2').text() == $('#board').find('#5').text()) {
+    //                   if ($('#board').find('#2').text() == $('#8').text()) {
+    //                       alert('Game over! '+player+' is the winner!');
+    //                       $("#board td").empty()
+    //                       }
+    //                     }
+    //                   }
+// CHeck for third column--> matches
+    // if ($('#board').find('#3').text() !== ''){
+    //               if ($('#board').find('#3').text() == $('#board').find('#6').text()) {
+    //                 if ($('#board').find('#3').text() == $('#9').text()) {
+    //                     alert('Game over! '+player+' is the winner!');
+    //                     $("#board td").empty()
+    //                       }
+    //                     }
+    //                   }
+// CHeck for lft to rght diagnol --> matches
+        // if ($('#board').find('#1').text() !== ''){
+        //     if ($('#board').find('#1').text() == $('#board').find('#5').text()) {
+        //       if ($('#board').find('#1').text() == $('#9').text()) {
+        //         alert('Game over! '+player+' is the winner!');
+        //         $("#board td").empty()
+        //       }
+        //         }
+        //       }
+// CHeck for rght to left diagnol --> matches
+        // if ($('#board').find('#3').text() !== ''){
+        //   if ($('#board').find('#3').text() == $('#board').find('#5').text()) {
+        //     if ($('#board').find('#3').text() == $('#7').text()) {
+        //          alert('Game over! '+player+' is the winner!')
+        //          emptyBoard()
+        //                     }
+        //                       }
+        //

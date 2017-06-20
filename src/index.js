@@ -7,16 +7,16 @@ $('td').click(function() {
    if ($(this).text()=== "") {
     if (turn % 2 === 0){
         $(this).text('X');
+        $("#urturn").text("It is O's Turn");
         // Add logic to checkWinner
         if (checkWinner('X')){
-          $("#board td").empty()
-
         };
     }else if(turn % 2 !== 0){
+          $("#urturn").text("It is X's Turn");
           $(this).text('O');
+
           // Add logic to checkWinner
           if (checkWinner('O')){
-            $("#board td").empty()
           };
         }else {
             alert("No Winner")
@@ -36,90 +36,36 @@ $("#reset").on("click", function() {
 
 
 function checkWinner(player){
-
-
 //  1|2|3
 //  4|5|6
 //  7|8|9
+  let row1win = [$('#1')[0].innerHTML,$('#2')[0].innerHTML,$('#3')[0].innerHTML]
+  let row2win = [$('#4')[0].innerHTML,$('#5')[0].innerHTML,$('#6')[0].innerHTML]
+  let row3win = [$('#7')[0].innerHTML,$('#8')[0].innerHTML,$('#9')[0].innerHTML]
+  let col1win = [$('#1')[0].innerHTML,$('#4')[0].innerHTML,$('#7')[0].innerHTML]
+  let col2win = [$('#2')[0].innerHTML,$('#5')[0].innerHTML,$('#8')[0].innerHTML]
+  let col3win = [$('#3')[0].innerHTML,$('#6')[0].innerHTML,$('#9')[0].innerHTML]
+  let diag1win = [$('#1')[0].innerHTML,$('#5')[0].innerHTML,$('#9')[0].innerHTML]
+  let diag2win = [$('#3')[0].innerHTML,$('#5')[0].innerHTML,$('#7')[0].innerHTML]
 
-// CHeck for first row--> matches
-  if ($('#board').find('#1').text() !== ''){
-              if ($('#board').find('#1').text() == $('#board').find('#2').text()) {
-                  if ($('#board').find('#1').text() == $('#3').text()) {
-                      alert('Game over! '+player+' is the winner!');
 
-                      $("#board td").empty()
+  let winningcombos =[row1win,row2win,row3win,col1win,col2win,col3win,diag1win,diag2win]
+  let winner = [player,player,player]
+  combostring= JSON.stringify(winningcombos)
+  winnerstring= JSON.stringify(winner)
 
-                  }
-              }
-    }
-// CHeck for second row--> matches
-    if ($('#board').find('#4').text() !== ''){
-                  if ($('#board').find('#4').text() == $('#board').find('#5').text()) {
-                      if ($('#board').find('#4').text() == $('#6').text()) {
-                          alert('Game over! '+player+' is the winner!');
-                          $("#board td").empty()
-                      }
-                  }
+      if (combostring.includes(winnerstring)){
+
+          setTimeout(function(){alert('Game over! '+player+' is the winner!')},500);
+          setTimeout(function(){ $("#board td").empty() }, 1000)
+          // $("#board td").empty()
         }
-// CHeck for third row--> matches
-    if ($('#board').find('#7').text() !== ''){
-              if ($('#board').find('#7').text() == $('#board').find('#8').text()) {
-                  if ($('#board').find('#7').text() == $('#9').text()) {
-                      alert('Game over! '+player+' is the winner!');
-                      $("#board td").empty()
-                    }
-                }
-            }
-// CHeck for first column--> matches
-    if ($('#board').find('#1').text() !== ''){
-            if ($('#board').find('#1').text() == $('#board').find('#4').text()) {
-              if ($('#board').find('#1').text() == $('#7').text()) {
-                  alert('Game over! '+player+' is the winner!');
-                  $("#board td").empty()
-                  }
-                }
-              }
-// CHeck for second column--> matches
-    if ($('#board').find('#2').text() !== ''){
-                    if ($('#board').find('#2').text() == $('#board').find('#5').text()) {
-                      if ($('#board').find('#2').text() == $('#8').text()) {
-                          alert('Game over! '+player+' is the winner!');
-                          $("#board td").empty()
-                          }
-                        }
-                      }
-// CHeck for third column--> matches
-    if ($('#board').find('#3').text() !== ''){
-                  if ($('#board').find('#3').text() == $('#board').find('#6').text()) {
-                    if ($('#board').find('#3').text() == $('#9').text()) {
-                        alert('Game over! '+player+' is the winner!');
-                        $("#board td").empty()
-                          }
-                        }
-                      }
-// CHeck for lft to rght diagnol --> matches
-        if ($('#board').find('#1').text() !== ''){
-            if ($('#board').find('#1').text() == $('#board').find('#5').text()) {
-              if ($('#board').find('#1').text() == $('#9').text()) {
-                alert('Game over! '+player+' is the winner!');
-                $("#board td").empty()
-              }
-                }
-              }
-// CHeck for rght to left diagnol --> matches
-        if ($('#board').find('#3').text() !== ''){
-          if ($('#board').find('#3').text() == $('#board').find('#5').text()) {
-            if ($('#board').find('#3').text() == $('#7').text()) {
-                 alert('Game over! '+player+' is the winner!')
-                 emptyBoard()
-                            }
-                              }
-                            }
-}
+
+  }
 
 
 
-function emptyBoard(){
-  setInterval(function(){ $("#board td").empty() }, 2000);
-}
+
+// function emptyBoard(){
+//   setTimeout(function(){ $("#board td").empty() }, 3000);
+// }
