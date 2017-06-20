@@ -4,23 +4,125 @@ $(document).ready(function(){
 var turn = 0
 
 $('td').click(function() {
- if ($(this).text()=== "") {
-  if (turn % 2 === 0){
-      $(this).text('X');
-    }else {
-        $(this).text('O');
-  }
-turn++;}
-})
-
-
+   if ($(this).text()=== "") {
+    if (turn % 2 === 0){
+        $(this).text('X');
+        // Add logic to checkWinner
+        if (checkWinner('X')){
+          turn = 0
+          $("#board td").empty()
+        };
+    }else if(turn % 2 !== 0){
+          $(this).text('O');
+          // Add logic to checkWinner
+          if (checkWinner('O')){
+            turn = 0
+            $("#board td").empty()
+          };
+        }else {
+            alert("No Winner")
+            turn = 0
+            $("#board td").empty()
+          }
+turn++;
+          }
+  })
 
 
 $("#reset").on("click", function() {
     $("#board td").empty()
   });
 
-
-
-
 });
+
+// NOT WORKING YET
+function checkWinner(player){
+  // playerX= "X"
+  // playerO="O"
+  //
+  // if (player = playerX) {
+  //   playergoes="Player O is first to go!"
+  // }else {
+  //   playergoes="Player X is first to go!"
+  // }
+
+//  1|2|3
+//  4|5|6
+//  7|8|9
+
+// CHeck for first row--> matches
+  if ($('#board').find('#1').text() !== ''){
+              if ($('#board').find('#1').text() == $('#board').find('#2').text()) {
+                  if ($('#board').find('#1').text() == $('#3').text()) {
+                      alert('Game over! '+player+' is the winner!');
+                      $("#board td").empty()
+
+                  }
+              }
+    }
+// CHeck for second row--> matches
+    if ($('#board').find('#4').text() !== ''){
+                  if ($('#board').find('#4').text() == $('#board').find('#5').text()) {
+                      if ($('#board').find('#4').text() == $('#6').text()) {
+                          alert('Game over! '+player+' is the winner!');
+                          $("#board td").empty()
+                      }
+                  }
+        }
+// CHeck for third row--> matches
+    if ($('#board').find('#7').text() !== ''){
+              if ($('#board').find('#7').text() == $('#board').find('#8').text()) {
+                  if ($('#board').find('#7').text() == $('#9').text()) {
+                      alert('Game over! '+player+' is the winner!');
+                      $("#board td").empty()
+                    }
+                }
+            }
+// CHeck for first column--> matches
+    if ($('#board').find('#1').text() !== ''){
+            if ($('#board').find('#1').text() == $('#board').find('#4').text()) {
+              if ($('#board').find('#1').text() == $('#7').text()) {
+                  alert('Game over! '+player+' is the winner!');
+                  $("#board td").empty()
+                  }
+                }
+              }
+// CHeck for second column--> matches
+    if ($('#board').find('#2').text() !== ''){
+                    if ($('#board').find('#2').text() == $('#board').find('#5').text()) {
+                      if ($('#board').find('#2').text() == $('#8').text()) {
+                          alert('Game over! '+player+' is the winner!');
+                          $("#board td").empty()
+                          }
+                        }
+                      }
+// CHeck for third column--> matches
+    if ($('#board').find('#3').text() !== ''){
+                  if ($('#board').find('#3').text() == $('#board').find('#6').text()) {
+                    if ($('#board').find('#3').text() == $('#9').text()) {
+                        alert('Game over! '+player+' is the winner!');
+                        $("#board td").empty()
+                          }
+                        }
+                      }
+// CHeck for lft to rght diagnol --> matches
+        if ($('#board').find('#1').text() !== ''){
+            if ($('#board').find('#1').text() == $('#board').find('#5').text()) {
+              if ($('#board').find('#1').text() == $('#9').text()) {
+                alert('Game over! '+player+' is the winner!');
+                $("#board td").empty()
+              }
+                }
+              }
+// CHeck for rght to left diagnol --> matches
+        if ($('#board').find('#3').text() !== ''){
+          if ($('#board').find('#3').text() == $('#board').find('#5').text()) {
+            if ($('#board').find('#3').text() == $('#7').text()) {
+                alert('Game over! '+player+' is the winner!');
+                $("#board td").empty()
+                            }
+                              }
+                            }
+
+
+}
