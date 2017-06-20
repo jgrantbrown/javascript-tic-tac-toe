@@ -18,14 +18,6 @@ $('td').click(function() {
 turn++;
   })
 
-if (true) {
-
-} else {
-
-}
-
-
-
 
 $("#reset").on("click", function() {
     $("#board td").empty()
