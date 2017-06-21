@@ -22,15 +22,17 @@ $(document).ready(function(){
     console.log(turn)
   });
 
+  $("#reset").on("click", function() {
+      $("#board td").empty()
+      $("#urturn").text("X's Starts")
+      turn = 0;
+    });
 })
 
 
 
-$("#reset").on("click", function() {
-    $("#board td").empty()
-  });
 
-// });
+
 
 
 function checkWinner(player){
@@ -63,10 +65,11 @@ if (player == "X"){
       if (combostring.includes(winnerstring)){
           $("#urturn").text(player+" Wins!")
           setTimeout(function(){ $("#board td").empty() }, 1000);
-          setTimeout(function(){$("#urturn").text(nextup+"'s Turn")},2000)
+          setTimeout(function(){$("#urturn").text(nextup+"'s Turn")},3000)
           turn = plyr
         }else{
           turn++;
+
         }
 
   }

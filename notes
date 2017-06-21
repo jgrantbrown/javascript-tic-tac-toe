@@ -1,4 +1,5 @@
 Addtional work:
-REset turn counter of game ends
-HAve the final box fill before winner announced
-Add style
+
+
+Account for tie alert.
+End game after win or tie (prevent addtional clicks)
